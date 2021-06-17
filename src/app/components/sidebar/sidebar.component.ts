@@ -6,7 +6,10 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
+  query,
+  stagger,
+  animateChild
 } from '@angular/animations';
 
 @Component({
@@ -17,10 +20,22 @@ import {
     trigger('openCloseSidebar', [
       transition(':enter', [
         style({ transform: 'translateX(-100%)' }),
-        animate(500)
+        animate(500),
+        query('@linkAnim', [animateChild()])
       ]),
       transition(':leave', [
         animate(500, style({ transform: 'translateX(-100%)' }))
+      ])
+    ]),
+    trigger('linkAnim', [
+      transition('*=>*', [
+        query('#anim', style({ opacity: 0, transform: 'translateY(-25px)' })),
+        query(
+          '#anim',
+          stagger('500ms', [
+            animate('500ms', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        )
       ])
     ])
   ]

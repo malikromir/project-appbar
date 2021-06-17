@@ -1,14 +1,25 @@
 <div [@openCloseSidebar] *ngIf="sideBarstatus" id="mySidebar" class="sidebar">
-  <a href="#">
-    <div><i class="fa fa-user"></i>USER</div>
-  </a>
-  <!-- <hr> -->
-  <a href="#">
-    <div><i class="fa fa-heart" aria-hidden="true"></i>Favourties</div>
-  </a>
-  <!-- <hr> -->
-  <a href="#">
-    <div><i class="fa fa-share-alt" aria-hidden="true"></i>Share</div>
-  </a>
+  <div @linkAnim>
+    <div id="anim"><a href="#">
+        <div><i class="fa fa-user"></i>USER</div>
+      </a>
+    </div>
+
+    <!-- <hr> -->
+    <div id="anim">
+      <a href="#">
+        <div><i class="fa fa-heart" aria-hidden="true"></i>Favourties</div>
+      </a>
+    </div>
+
+    <!-- <hr> -->
+    <div id="anim">
+      <a href="#">
+        <div><i class="fa fa-share-alt" aria-hidden="true"></i>Share</div>
+      </a>
+    </div>
+
+  </div>
+
 
 </div>
